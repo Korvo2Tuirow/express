@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
   });
 });
 
+// Rota de teste
 router.get('/teste', (req, res) => {
     res.json({
         message: 'Rota de teste funcionando!',
