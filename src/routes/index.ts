@@ -1,6 +1,13 @@
 import express from 'express';
 
+import produtosRouter from './produtos';// Importando as rotas de produtos
+import voosRouter from './voos';// Importando as rotas de voos
+
 const router = express.Router();
+
+router.use('/produtos', produtosRouter);// Registrando as rotas de produtos sob o prefixo '/produtos'
+router.use('/voos', voosRouter);// Registrando as rotas de voos sob o prefixo '/voos'
+
 
 // Rota simples
 router.get('/', (req, res) => {
@@ -20,7 +27,6 @@ router.get('/teste', (req, res) => {
     res.json({
         message: 'Rota de teste funcionando!',
     })
-})
-
+});
 
 export default router;

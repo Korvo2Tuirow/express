@@ -3,8 +3,7 @@ import helmet from 'helmet';
 import path from 'path';// Importando o módulo path para manipulação de caminhos de arquivos
 
 import router from './routes';// Importando as rotas definidas no arquivo index.ts
-import produtosRouter from './routes/produtos';// Importando as rotas de produtos
-import voosRouter from './routes/voos';// Importando as rotas de voos
+
 
 const app = express();
 const port = 3000;
@@ -20,8 +19,6 @@ app.use(express.urlencoded({ extended: true }));// Permite o envio de dados via 
 // Servindo arquivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));//http://localhost:3000/teste.txt
 
-app.use('/produtos', produtosRouter);// Registrando as rotas de produtos sob o prefixo '/produtos'
-app.use('/voos', voosRouter);// Registrando as rotas de voos sob o prefixo '/voos'
 app.use('/', router);// Registrando as rotas definidas no arquivo index.ts sob o prefixo '/'
 
 app.listen(port, () => {
