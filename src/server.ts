@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import path from 'path';// Importando o módulo path para manipulação de caminhos de arquivos
 
 import router from './routes';// Importando as rotas definidas no arquivo index.ts
+import { errorHandler, notFoundRequest } from './routes/errorhandler';
 
 
 const app = express();
@@ -18,8 +19,12 @@ app.use(express.urlencoded({ extended: true }));// Permite o envio de dados via 
 
 // Servindo arquivos estáticos
 app.use(express.static(path.join(__dirname, '../public')));//http://localhost:3000/teste.txt
+// O caminho '../public' é relativo ao diretório onde o arquivo index.ts está localizado
+// Isso permite que você sirva arquivos estáticos, como imagens, CSS e JavaScript, a partir do diretório 'public'.
 
 app.use('/', router);// Registrando as rotas definidas no arquivo index.ts sob o prefixo '/'
+app.use(notFoundRequest);// Middleware para tratar requisições não encontradas (404)
+app.use(errorHandler);// Middleware para tratar erros internos do servidor (500)
 
 app.listen(port, () => {
   console.log(`Servidor rodando em http://localhost:${port}`);
