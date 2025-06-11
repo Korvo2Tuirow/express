@@ -4,8 +4,11 @@ import produtosRouter from './produtos';// Importando as rotas de produtos
 import voosRouter from './voos';// Importando as rotas de voos
 import firestoreRouter from './firestore';// Importando as rotas do Firebase
 import realtimeRouter from './realtime';
+import Middleware from '../middlewares/middleware';
 
 const router = express.Router();
+
+router.use(Middleware);// Aplicando o middleware globalmente
 
 router.use('/produtos', produtosRouter);// Registrando as rotas de produtos sob o prefixo '/produtos'
 router.use('/voos', voosRouter);// Registrando as rotas de voos sob o prefixo '/voos'
