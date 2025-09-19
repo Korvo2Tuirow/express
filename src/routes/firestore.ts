@@ -16,8 +16,8 @@ router.get('/', async (req, res) => {
       usuarios.push({ id: doc.id, ...doc.data() });
     });
 
-    res.json(usuarios)
-    console.log(usuarios)
+    res.json(usuarios);
+    console.log(usuarios);
   } catch (error) {
     console.error('Erro ao buscar usuários:', error);
     res.status(500).json({ erro: 'Erro ao buscar usuários' });
