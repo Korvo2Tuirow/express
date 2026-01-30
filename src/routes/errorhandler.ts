@@ -3,7 +3,7 @@ import { ErrorRequestHandler, RequestHandler } from "express";// Importando o ti
 
 export const notFoundRequest: RequestHandler = (req, res) => {
     res.status(404).json({
-        message: 'Recurso não encontrado',
+        message: 'Rota não encontrada',
     });
 };
 

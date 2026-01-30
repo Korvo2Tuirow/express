@@ -39,6 +39,8 @@ router.get('/', (req, res) => {
       }
     }
   ]);
+
+
 });
 
 // Rota de teste
